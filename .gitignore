@@ -1,0 +1,51 @@
+# === Data (large/regenerable) ===
+data/rand/
+data/rand_new/
+data/*.md
+
+# === Output build artifacts ===
+output/temp/
+output/**/*.aux
+output/**/*.fls
+output/**/*.fdb_latexmk
+output/**/*.log
+output/**/*.synctex.gz
+
+# === Non-replication directories ===
+writing/
+writing_private/
+paper/
+_memory/
+replication_package/
+
+# === Docs (ignore all, whitelist specific files) ===
+docs/*
+!docs/simulation_report.md
+!docs/weighting_design.md
+!docs/robust_weights.md
+
+# === Python / environment ===
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.venv/
+
+# === IDE / editor settings ===
+.claude/
+.cursor/
+.vscode/
+.github/
+
+# === OS files ===
+.DS_Store
+
+# === Tool configs ===
+.cursorignore
+.env
+CLAUDE.md
+GEMINI.md
+
+# === Lockfile (regenerable) ===
+uv.lock
