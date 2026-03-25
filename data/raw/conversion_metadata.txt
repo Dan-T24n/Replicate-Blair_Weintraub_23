@@ -2,7 +2,7 @@ Data Conversion Log - Blair & Weintraub (2023) Replication
 ============================================================
 
 File: admin_data_after.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/admin_data_after.csv
+  Output: data/raw/admin_data_after.csv
   Shape: (1254, 36)
   Missing values: 348
   Variables: 36
@@ -10,7 +10,7 @@ File: admin_data_after.dta
   Has value labels: 2
 
 File: admin_data_during.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/admin_data_during.csv
+  Output: data/raw/admin_data_during.csv
   Shape: (1254, 52)
   Missing values: 348
   Variables: 52
@@ -18,7 +18,7 @@ File: admin_data_during.dta
   Has value labels: 2
 
 File: admin_data_prior.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/admin_data_prior.csv
+  Output: data/raw/admin_data_prior.csv
   Shape: (1254, 16)
   Missing values: 87
   Variables: 16
@@ -26,7 +26,7 @@ File: admin_data_prior.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p1.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p1.csv
+  Output: data/rand/block_simulate_randomizations_p1.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -34,7 +34,7 @@ File: block_simulate_randomizations_p1.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p10.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p10.csv
+  Output: data/rand/block_simulate_randomizations_p10.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -42,7 +42,7 @@ File: block_simulate_randomizations_p10.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p2.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p2.csv
+  Output: data/rand/block_simulate_randomizations_p2.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -50,7 +50,7 @@ File: block_simulate_randomizations_p2.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p3.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p3.csv
+  Output: data/rand/block_simulate_randomizations_p3.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -58,7 +58,7 @@ File: block_simulate_randomizations_p3.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p4.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p4.csv
+  Output: data/rand/block_simulate_randomizations_p4.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -66,7 +66,7 @@ File: block_simulate_randomizations_p4.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p5.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p5.csv
+  Output: data/rand/block_simulate_randomizations_p5.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -74,7 +74,7 @@ File: block_simulate_randomizations_p5.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p6.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p6.csv
+  Output: data/rand/block_simulate_randomizations_p6.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -82,7 +82,7 @@ File: block_simulate_randomizations_p6.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p7.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p7.csv
+  Output: data/rand/block_simulate_randomizations_p7.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -90,7 +90,7 @@ File: block_simulate_randomizations_p7.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p8.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p8.csv
+  Output: data/rand/block_simulate_randomizations_p8.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -98,7 +98,7 @@ File: block_simulate_randomizations_p8.dta
   Has value labels: 1
 
 File: block_simulate_randomizations_p9.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/rand/block_simulate_randomizations_p9.csv
+  Output: data/rand/block_simulate_randomizations_p9.csv
   Shape: (1254, 10001)
   Missing values: 0
   Variables: 10001
@@ -106,7 +106,7 @@ File: block_simulate_randomizations_p9.dta
   Has value labels: 1
 
 File: manzanas_restricted.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/manzanas_restricted.csv
+  Output: data/raw/manzanas_restricted.csv
   Shape: (1254, 48)
   Missing values: 0
   Variables: 48
@@ -114,21 +114,21 @@ File: manzanas_restricted.dta
   Has value labels: 1
 
 File: patrols_block_data.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/patrols_block_data.csv
+  Output: data/raw/patrols_block_data.csv
   Shape: (216, 6)
   Missing values: 0
   Variables: 6
   Has variable labels: 6
 
 File: patrols_data.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/patrols_data.csv
+  Output: data/raw/patrols_data.csv
   Shape: (1094, 7)
   Missing values: 1
   Variables: 7
   Has variable labels: 7
 
 File: survey_endline.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/survey_endline.csv
+  Output: data/raw/survey_endline.csv
   Shape: (7918, 78)
   Missing values: 8254
   Variables: 78
@@ -136,7 +136,7 @@ File: survey_endline.dta
   Has value labels: 9
 
 File: survey_monitoring.dta
-  Output: /Users/mbp16/Desktop/replication_brodeaux/data/raw/survey_monitoring.csv
+  Output: data/raw/survey_monitoring.csv
   Shape: (2086, 31)
   Missing values: 131
   Variables: 31

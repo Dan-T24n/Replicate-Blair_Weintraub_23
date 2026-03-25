@@ -5,6 +5,7 @@ data/*.md
 
 # === Output build artifacts ===
 output/temp/
+output/*/full_pipeline/
 output/**/*.aux
 output/**/*.fls
 output/**/*.fdb_latexmk
@@ -47,5 +48,5 @@ __pycache__/
 CLAUDE.md
 GEMINI.md
 
-# === Lockfile (regenerable) ===
-uv.lock
+# === Lockfile (tracked for reproducibility) ===
+# uv.lock

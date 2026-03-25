@@ -1,10 +1,16 @@
 # Blair & Weintraub (2023) Military Policing Replication
 
-A complete Python replication of Blair & Weintraub (2023) "Little evidence that military policing reduces crime or improves human security" - converting the entire Stata pipeline to Python while preserving exact logic, results, and statistical procedures.
+A complete Python replication of Blair & Weintraub (2023), converting the entire Stata pipeline to Python while preserving exact logic, results, and statistical procedures.
+
+## Original Paper
+
+Blair, R. A. & Weintraub, M. (2023). Little evidence that military policing reduces crime or improves human security. *Nature Human Behaviour*, 7, 861-873. [https://doi.org/10.1038/s41562-023-01600-1](https://doi.org/10.1038/s41562-023-01600-1)
+
+**Replication package**: [https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WAJ9SR](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WAJ9SR) (Harvard Dataverse)
+
+**Summary**: The study evaluates the effect of military policing on crime and human security through a randomized controlled trial in Cali, Colombia. 1,255 city blocks were randomly assigned to treatment (joint military-police patrols), spillover (within 25m of treated blocks), or control conditions. Using administrative crime records and survey data, the authors find little evidence that military patrols reduced crime or improved residents' perceptions of security. Randomization inference with 100,000 simulations confirms the null results are robust. The findings challenge the widespread policy of deploying military forces for domestic policing in Latin America and beyond.
 
 ## Project Overview
-
-**Original Study**: Randomized controlled trial of military policing intervention in Cali, Colombia with 1,255 city blocks randomized to treatment/spillover/control groups.
 
 **Replication Goal**: Convert entire Stata replication package to Python while maintaining:
 - Exact variable names and value encodings
@@ -26,24 +32,21 @@ replication_brodeaux/
 │   ├── 02_run_randomization_inference.py  # Simulation engine
 │   ├── 02b_precompute_ri_coefficients.py  # Coefficient pre-computation
 │   ├── 03_tables.py           # Table generation (LaTeX output)
-│   └── 04_figures.py          # Figure generation (PDF output)
+│   ├── 04_figures.py          # Figure generation (PDF output)
+│   └── utils/                 # Shared utility modules
 ├── output/
 │   ├── tables/               # LaTeX tables (.tex files)
-│   │   ├── full_pipeline/    # Full reproduction outputs
-│   │   └── bypass_pipeline/  # Development outputs
 │   └── figures/              # PDF figures
-│       ├── full_pipeline/    # Full reproduction outputs
-│       └── bypass_pipeline/  # Development outputs
 ├── tests/                    # Test suite for validation
-├── replication_package/      # Original Stata files (reference)
 ├── config.py                 # Centralized path management
+├── LICENSE                   # MIT License
 └── pyproject.toml           # Python environment configuration
 ```
 
 ## Key Features
 
 - **Exact Replication**: All variable names (`unw_crime2_num`, `i.treatment`, `i.barrio_code`, etc.) preserved exactly
-- **Statistical Fidelity**: Inverse probability weighting, clustered standard errors, and randomization inference replicated precisely
+- **Statistical Fidelity**: Probability weighting, clustered standard errors, and randomization inference replicated precisely
 - **Three-Group Design**: Treatment/spillover/control framework with identical specifications
 - **Performance Optimization**: Python implementation with parallel processing for 100,000+ simulations
 - **Format Preservation**: LaTeX tables and PDF figures matching original styling exactly
@@ -82,7 +85,7 @@ source .venv/bin/activate  # On macOS/Linux
 
 ### Full Pipeline (Recommended)
 ```bash
-# Run complete pipeline: 1-2c-3-4 (generates new simulations)
+# Run complete pipeline: 1-2-2b-3-4 (generates new RI simulations)
 uv run src/00_pipeline_full.py
 ```
 
@@ -115,12 +118,19 @@ pytest tests/test_data_conversion.py
 ```
 
 ### Key Output Files
-- **Table 1**: `output/tables/table1_complete.tex` - Main treatment effects with RI p-values
+- **Table 1**: `output/tables/table1_complete_RI.tex` - Main treatment effects with RI p-values
 - **Figure 2**: `output/figures/figure_2.pdf` - Crime effects during intervention
 - **Figure 3**: `output/figures/figure_3.pdf` - Survey outcomes
 - **Figure 4**: `output/figures/figure_4.pdf` - Human rights effects
 
-Output directories separate full reproduction (`full_pipeline/`) from development (`bypass_pipeline/`) results.
+### Supplementary Analysis Scripts
+
+The following scripts in `src/` are not part of the core pipeline but document the analytical work done to validate the weighting methodology:
+
+- `analyze_iweight_patterns.py` - Investigation of inverse probability weight distributions
+- `reproduce_weights.py` - Independent reconstruction of the weighting scheme from first principles
+- `robustness_balance_test.py` - Balance checks across treatment arms
+- `validate_weighting_schemes.py` - Cross-validation of weighting approaches against Stata output
 
 ## Data Sources
 
@@ -171,10 +181,10 @@ Output directories separate full reproduction (`full_pipeline/`) from developmen
 
 ## Reference
 
-**Original Paper**: Blair, R. A., & Weintraub, M. (2023). Little evidence that military policing reduces crime or improves human security. *Nature Human Behaviour*.
-
-**Original Replication Package**: Available in `replication_package/` directory with complete Stata code and data files.
+See [Original Paper](#original-paper) section above for full citation, replication package link, and study summary.
 
 ## License
 
-This replication follows the same licensing terms as the original replication package.
+This Python replication code is released under the [MIT License](LICENSE).
+
+The original data from Blair & Weintraub (2023) is available on [Harvard Dataverse](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/WAJ9SR) under CC0 1.0 Public Domain Dedication.
