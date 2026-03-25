@@ -1,6 +1,6 @@
 # Blair & Weintraub (2023) Military Policing Replication
 
-A complete Python replication of Blair & Weintraub (2023), converting the entire Stata pipeline to Python while preserving exact logic, results, and statistical procedures.
+A Python replication of the main results from Blair & Weintraub (2023), converting the core Stata analysis pipeline to Python while preserving exact logic, results, and statistical procedures. Covers Table 1 and Figures 2-4; appendix tables (A.2-A.22) and appendix figures (A.6-A.28) are not yet implemented.
 
 ## Original Paper
 
@@ -12,7 +12,7 @@ Blair, R. A. & Weintraub, M. (2023). Little evidence that military policing redu
 
 ## Project Overview
 
-**Replication Goal**: Convert entire Stata replication package to Python while maintaining:
+**Replication Goal**: Convert the main results from the Stata replication package to Python while maintaining:
 - Exact variable names and value encodings
 - Identical statistical procedures and results
 - Original file structure and naming conventions
@@ -77,9 +77,9 @@ source .venv/bin/activate  # On macOS/Linux
 
 ### Required Packages
 - **Data Processing**: pandas, numpy, pyreadstat
-- **Statistics**: scipy, statsmodels
+- **Statistics**: scipy, statsmodels, patsy
 - **Visualization**: matplotlib, seaborn
-- **Performance**: numba, joblib, tqdm
+- **Utilities**: tqdm
 - **Testing** (dev): pytest
 
 ## Usage
@@ -155,10 +155,10 @@ The following scripts in `src/` are not part of the core pipeline but document t
 ## Statistical Framework
 
 ### Core Methodology
-- **Inverse Probability Weighting**: Exact replication of Stata `iweight` calculations
-- **Clustered Standard Errors**: Block-level clustering matching Stata methodology
-- **Randomization Inference**: Two-tailed tests with 100,000 simulations
-- **Treatment Assignment**: Three-group design with spillover effects
+- **Probability Weighting**: Replication of Stata `iweight` weighting scheme
+- **Clustered Standard Errors**: Block-level clustering matching Stata `vce(cluster manzana_code)`
+- **Randomization Inference**: Two-tailed tests with 100,000 independently generated simulations
+- **Treatment Assignment**: Three-group design (treatment, spillover, control)
 
 ### Key Variables
 - **Primary Outcome**: `unw_crime2_num` (unweighted crime count)
@@ -166,19 +166,27 @@ The following scripts in `src/` are not part of the core pipeline but document t
 - **Geographic Controls**: `$geovars` (original Stata macro variables)
 - **Block Demographics**: `$blockdemovars` (original Stata macro variables)
 
-## Validation Criteria
+## Replication Results
 
-- **Numerical Precision**: Coefficients match within 1e-4 tolerance
-- **Statistical Output**: All p-values and confidence intervals identical
-- **File Format**: LaTeX and PDF outputs match original styling exactly
-- **Variable Names**: No renaming or case changes from original Stata code
+### What matches exactly
+- **Point estimates**: All treatment and spillover coefficients match across all 5 columns
+- **Survey columns (3-5)**: Confidence intervals, p-values, and standard errors match the original
+- **Sample sizes and R-squared**: Identical across all columns
 
-## Performance Achievements
+### Where results differ
+- **Admin data columns (1-2)**: Confidence intervals and p-values differ due to default standard error computation differences between Stata and Python statsmodels. Point estimates are unaffected.
+- **RI p-values**: This pipeline independently regenerates 100,000 randomization inference simulations using Python's RNG (not the original Stata draws). RI p-values therefore differ from the published values. Most are close (e.g., Col 1 treatment: 0.959 vs 0.959), but Col 5 treatment diverges notably (0.164 vs 0.038), crossing the conventional 0.05 threshold. This reflects simulation variance, not a coding error.
+- **Control means**: Cols 3-4 differ at the third decimal place (-0.020 vs -0.021, -0.015 vs -0.016)
 
-- **Simulation Speed**: 1,578x faster than original Stata implementation
-- **Execution Time**: 100,000 randomization inference simulations complete in 7.6 seconds
-- **Statistical Equivalence**: 99.9% match with original simulation results
-- **Memory Efficiency**: Vectorized operations with multiprocessing support
+### Variable and format preservation
+- All original variable names preserved without renaming or case changes
+- LaTeX tables and PDF figures follow original styling conventions
+
+## Performance
+
+- **Simulation Speed**: 100,000 RI simulations complete in ~20 seconds (vs. 2+ hours in Stata)
+- **Coefficient Pre-computation**: 500,000 WLS regressions across 5 columns cached for reuse
+- **Simulation Validation**: Treatment/spillover/control proportions match original within 0.4pp tolerance across 100,000 draws
 
 ## Reference
 

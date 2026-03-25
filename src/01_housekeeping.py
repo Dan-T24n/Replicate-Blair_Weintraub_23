@@ -40,8 +40,8 @@ def verify_paths():
         print(f"\nCreating missing directories: {missing_paths}")
         ensure_directories()
         print("  All directories created")
-    
-    return len(missing_paths) == 0
+
+    return True
 
 #%%
 def verify_data_files():

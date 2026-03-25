@@ -44,18 +44,6 @@ DATA_FILES = {
     'manzanas_restricted': 'manzanas_restricted.csv',
     'patrols_block_data': 'patrols_block_data.csv',
     'patrols_data': 'patrols_data.csv',
-    
-    # Randomization inference simulation data (10 files)
-    'block_sim_p1': 'block_simulate_randomizations_p1.csv',
-    'block_sim_p2': 'block_simulate_randomizations_p2.csv',
-    'block_sim_p3': 'block_simulate_randomizations_p3.csv',
-    'block_sim_p4': 'block_simulate_randomizations_p4.csv',
-    'block_sim_p5': 'block_simulate_randomizations_p5.csv',
-    'block_sim_p6': 'block_simulate_randomizations_p6.csv',
-    'block_sim_p7': 'block_simulate_randomizations_p7.csv',
-    'block_sim_p8': 'block_simulate_randomizations_p8.csv',
-    'block_sim_p9': 'block_simulate_randomizations_p9.csv',
-    'block_sim_p10': 'block_simulate_randomizations_p10.csv',
 }
 
 # Validation settings
