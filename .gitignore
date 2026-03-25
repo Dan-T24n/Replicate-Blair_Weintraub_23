@@ -1,6 +1,14 @@
-# === Data (large/regenerable) ===
-data/rand/
-data/rand_new/
+# === Data (large/regenerable, keep directory structure via .gitkeep) ===
+data/rand/*
+!data/rand/.gitkeep
+!data/rand/coefs/
+data/rand/coefs/*
+!data/rand/coefs/.gitkeep
+data/rand_new/*
+!data/rand_new/.gitkeep
+!data/rand_new/coefs/
+data/rand_new/coefs/*
+!data/rand_new/coefs/.gitkeep
 data/*.md
 
 # === Output build artifacts ===
